@@ -1,0 +1,1 @@
+# Simple static page on GCP
