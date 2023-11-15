@@ -18,15 +18,17 @@ resource "google_storage_bucket" "my-bucket" {
 }
 
 resource "google_storage_bucket_object" "main-page" {
-  bucket = google_storage_bucket.my-bucket.name
-  name   = "index.html"
-  source = "../app/index.html"
+  bucket        = google_storage_bucket.my-bucket.name
+  name          = "index.html"
+  source        = "../app/index.html"
+  cache_control = "public, max-age=1"
 }
 
 resource "google_storage_bucket_object" "not-found-page" {
-  bucket = google_storage_bucket.my-bucket.name
-  name   = "404.html"
-  source = "../app/404.html"
+  bucket        = google_storage_bucket.my-bucket.name
+  name          = "404.html"
+  source        = "../app/404.html"
+  cache_control = "public, max-age=1"
 }
 
 resource "google_storage_bucket_iam_binding" "bucket-iam-binding" {
